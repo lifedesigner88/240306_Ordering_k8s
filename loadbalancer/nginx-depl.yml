@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sejong-nginx-depl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sejong-nginx
+  template:    # 파드 라벨 이름
+    metadata:
+      labels:
+        app: sejong-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80

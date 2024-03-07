@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sejong-nginx-depl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sejong-nginx
+  template:    # 파드 라벨 이름
+    metadata:
+      labels:
+        app: sejong-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sejong-nginx-service
+spec:
+#  ClusterIp는 클러스터 내부에서만 접근가능한 Service를 생성
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80   # 서비스의 포트번호
+  selector:
+    app: sejong-nginx
