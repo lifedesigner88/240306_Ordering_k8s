@@ -43,7 +43,7 @@ jobs:
           --build-arg DB_PASSWORD \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
           -f ./ordering_server/Dockerfile ./ordering_server
-          docker psuh $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
       - name: eks kubectl apply
         run: |
