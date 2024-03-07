@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/ordering
+    username: root
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    database: mysql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  expiration: 30 #300분
+  secretKey: sejong
+
+
+
+
