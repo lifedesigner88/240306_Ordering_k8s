@@ -1,9 +1,9 @@
-name: deploy order-backend
+name: deploy MSA depoly
 
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   build-and-deploy:
@@ -32,24 +32,45 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: build and push docker image to ecr
+      - name: build and push docker item image
         env:
           REGISTRY: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com
-          REPOSITORY: team4-order
+          REPOSITORY: team4-item
           IMAGE_TAG: latest
-        #          DB_HOST: ${{ secrets.DB_HOST }}
-        #          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        #          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           docker build \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-          -f ./ordering_server/Dockerfile ./ordering_server
+          -f ./order_msa_server/ordering_item_server/Dockerfile ./order_msa_server/ordering_item_server/
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      - name: eks kubectl apply
+      - name: build and push docker member image
+        env:
+          REGISTRY: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com
+          REPOSITORY: team4-member
+          IMAGE_TAG: latest
         run: |
-          kubectl apply -f ./ordering_server/k8s/order-backend-depl-server.yml
-          kubectl rollout restart deployment sejong-ordering-depl
+          docker build \
+          -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
+          -f ./order_msa_server/ordering_member_server/Dockerfile ./order_msa_server/ordering_member_server/
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+
+      - name: eks kubectl apply item
+        run: |
+          kubectl apply -f ./order_msa_server/ordering_item_server/k8s/order-item-depl-server.yml
+          kubectl rollout restart deployment sejong-item-depl
+          
+
+      - name: eks kubectl apply member
+        run: |
+          kubectl apply -f ./order_msa_server/ordering_member_server/k8s/order-member-depl-server.yml
+          kubectl rollout restart deployment sejong-member-depl
+          
+  
+          
+  
+          
+          
 
 # 1. depl, service 정의
 # 2. ingress-controller 생성
