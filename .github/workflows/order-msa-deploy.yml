@@ -35,7 +35,7 @@ jobs:
       - name: build and push docker item image
         env:
           REGISTRY: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com
-          REPOSITORY: team4-item
+          REPOSITORY: 4team-item
           IMAGE_TAG: latest
         run: |
           docker build \
@@ -47,7 +47,7 @@ jobs:
       - name: build and push docker member image
         env:
           REGISTRY: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com
-          REPOSITORY: team4-member
+          REPOSITORY: 4team-member
           IMAGE_TAG: latest
         run: |
           docker build \
