@@ -17,6 +17,11 @@ spec:
           image: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com/team4-order:latest
           ports:
             - containerPort: 80
+#          env:
+#            DB_HOST:
+#            DB_USERNAME:
+#            DB_PASSWORD:
+#
 ---
 apiVersion: v1
 kind: Service
