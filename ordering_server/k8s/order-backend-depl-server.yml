@@ -16,7 +16,7 @@ spec:
         - name: ordering-backend
           image: 346903264902.dkr.ecr.ap-northeast-2.amazonaws.com/team4-order:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           resources:
             limits:
               cpu: "1"
@@ -25,7 +25,7 @@ spec:
               cpu: "0.5"
               memory: "250Mi"
           env:
-            - name: DB-HOST
+            - name: DB_HOST
               valueFrom:
                 secretKeyRef:
                   name: db-infos
@@ -52,7 +52,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 80   # 서비스의 포트번호
+      targetPort: 8080   # 서비스의 포트번호
   selector:
     app: sejong-ordering-backend
 
