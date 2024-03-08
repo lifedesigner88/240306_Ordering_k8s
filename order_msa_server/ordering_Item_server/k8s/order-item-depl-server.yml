@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sejong-item-depl
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: sejong-item
