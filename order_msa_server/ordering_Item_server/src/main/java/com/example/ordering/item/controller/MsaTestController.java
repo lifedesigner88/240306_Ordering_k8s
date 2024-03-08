@@ -23,7 +23,7 @@ public class MsaTestController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("test/findmember")
+    @GetMapping("/test/findmember")
     public MemberDto findmember(HttpServletRequest httpServletRequest){
         String token = httpServletRequest.getHeader("Authorization");
         System.out.println("token: " + token);
@@ -36,5 +36,4 @@ public class MsaTestController {
 
         return restTemplate.exchange(url, HttpMethod.GET, entity, MemberDto.class).getBody();
     }
-
 }
