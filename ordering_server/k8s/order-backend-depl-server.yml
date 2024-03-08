@@ -25,7 +25,7 @@ spec:
               cpu: "0.5"
               memory: "250Mi"
           env:
-            - name: DB_HOST
+            - name: DB-HOST
               valueFrom:
                 secretKeyRef:
                   name: db-infos
