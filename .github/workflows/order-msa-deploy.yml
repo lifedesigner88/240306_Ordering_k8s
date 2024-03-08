@@ -40,7 +40,7 @@ jobs:
         run: |
           docker build \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-          -f ./order_msa_server/ordering_item_server/Dockerfile ./order_msa_server/ordering_item_server/
+          -f ./order_msa_server/ordering_item_server/Dockerfile ./order_msa_server/ordering_item_server
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
       - name: build and push docker member image
@@ -51,7 +51,7 @@ jobs:
         run: |
           docker build \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-          -f ./order_msa_server/ordering_member_server/Dockerfile ./order_msa_server/ordering_member_server/
+          -f ./order_msa_server/ordering_member_server/Dockerfile ./order_msa_server/ordering_member_server
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
 

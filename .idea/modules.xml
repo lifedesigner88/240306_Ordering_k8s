@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/240306_Ordering_k8s.iml" filepath="$PROJECT_DIR$/.idea/240306_Ordering_k8s.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ordering_item_server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ordering_item_server.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ordering_member_server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ordering_member_server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ordering_server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ordering_server.main.iml" />
     </modules>
   </component>
