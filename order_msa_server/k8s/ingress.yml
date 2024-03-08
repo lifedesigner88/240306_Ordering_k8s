@@ -18,11 +18,18 @@ spec:
     - host: server.sejong88.shop
       http:
         paths:
-          - path: /sejong/(.*)   # 모든 url요청을 nginx-service로 라우팅
+          - path: /sejong-item/(.*)   # 모든 url요청을 nginx-service로 라우팅
             pathType: Prefix
             backend:
               service:
-                name: sejong-ordering-backend
+                name: sejong-item-backend
+                port:
+                  number: 80
+          - path: /sejong-member/(.*)   # 모든 url요청을 nginx-service로 라우팅
+            pathType: Prefix
+            backend:
+              service:
+                name: sejong-member-backend
                 port:
                   number: 80
 

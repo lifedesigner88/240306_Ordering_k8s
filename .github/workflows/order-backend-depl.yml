@@ -51,3 +51,9 @@ jobs:
           kubectl apply -f ./ordering_server/k8s/order-backend-depl-server.yml
           kubectl rollout restart deployment sejong-ordering-depl
 
+# 1. depl, service 정의
+# 2. ingress-controller 생성
+# 3. ingress 적용
+# 4. 인증서 작업
+# 5. route53에 로드밸런서 dns주소 cname 등록
+

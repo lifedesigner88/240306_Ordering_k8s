@@ -4,6 +4,22 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/order_msa_server/ordering_Item_server" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/order_msa_server/ordering_Item_server" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/order_msa_server/ordering_member_server" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/order_msa_server/ordering_member_server" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/ordering_server" />
         <option name="modules">
           <set>
