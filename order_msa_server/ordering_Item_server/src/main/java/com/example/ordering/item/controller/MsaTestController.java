@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class MsaTestController {
 
     private final RestTemplate restTemplate;
-    private final String MEMBER_API = "http://sejong-member-service:8082";
+    private final String MEMBER_API = "http://sejong-member-service/";
 
 
     @Autowired
@@ -29,7 +29,7 @@ public class MsaTestController {
         System.out.println("token: " + token);
 
 
-        String url = MEMBER_API + "/member/myInfo";
+        String url = MEMBER_API + "member/myInfo";
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
