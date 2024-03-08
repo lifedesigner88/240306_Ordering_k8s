@@ -22,7 +22,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sejong-item-sevice
+                name: sejong-item-service
                 port:
                   number: 80
           - path: /sejong-member/(.*)   # 모든 url요청을 nginx-service로 라우팅
