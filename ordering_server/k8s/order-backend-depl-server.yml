@@ -18,7 +18,6 @@ spec:
           ports:
             - containerPort: 80
           resources:
-            #            컨테이너가 사용할 수 있는 리소스의 최대치
             limits:
               cpu: "1"
               memory: "500Mi"
@@ -26,21 +25,21 @@ spec:
               cpu: "0.5"
               memory: "250Mi"
           env:
-          - name: DB_HOST
-            valueFrom:
-              secretKeyRef:
-                name: db-infos
-                key: DB_HOST
-          - name: DB_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: db-infos
-                key: DB_USERNAME
-          - name: DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: db-infos
-                key: DB_PASSWORD
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-infos
+                  key: DB-HOST
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-infos
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-infos
+                  key: DB_PASSWORD
 
 ---
 apiVersion: v1
@@ -56,3 +55,10 @@ spec:
       targetPort: 80   # 서비스의 포트번호
   selector:
     app: sejong-ordering-backend
+
+
+
+
+
+
+
