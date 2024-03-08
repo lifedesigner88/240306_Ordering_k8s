@@ -40,8 +40,9 @@ jobs:
         run: |
           docker build \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-          -f ./order_msa_server/ordering_item_server/Dockerfile ./order_msa_server/ordering_item_server
+          -f ./order_msa_server/ordering_Item_server/Dockerfile ./order_msa_server/ordering_Item_server
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
 
       - name: build and push docker member image
         env:
@@ -57,7 +58,7 @@ jobs:
 
       - name: eks kubectl apply item
         run: |
-          kubectl apply -f ./order_msa_server/ordering_item_server/k8s/order-item-depl-server.yml
+          kubectl apply -f ./order_msa_server/ordering_Item_server/k8s/order-item-depl-server.yml
           kubectl rollout restart deployment sejong-item-depl
           
 
